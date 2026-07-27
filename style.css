@@ -217,7 +217,7 @@ ul {
   height: var(--navbar-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
@@ -229,6 +229,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 28px;
+  margin-left: auto;   /* pushes the menu + buttons to the right side */
 }
 
 .nav-link {
@@ -259,6 +260,37 @@ ul {
 .nav-link-button.active {
   background: var(--color-accent);
   color: #ffffff;
+}
+
+/* Language switcher (EN / ID) */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-accent);
+}
+
+/* The language currently shown gets the accent color
+   (the "active" class is switched by script.js) */
+.lang-option.active {
+  color: var(--color-accent);
+}
+
+.lang-divider {
+  opacity: 0.4;
 }
 
 /* Hamburger button — hidden on desktop, shown on mobile */
@@ -1035,6 +1067,13 @@ ul {
   /* --- Mobile menu --- */
   .hamburger {
     display: flex;
+  }
+
+  /* On mobile the menu leaves the navbar (it becomes a dropdown),
+     so the language button takes over pushing itself + the
+     hamburger to the right side */
+  .lang-toggle {
+    margin-left: auto;
   }
 
   .nav-links {
