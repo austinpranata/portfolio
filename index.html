@@ -19,6 +19,15 @@
 </head>
 <body>
 
+  <!-- =====================================================
+       HOW THE LANGUAGE SWITCHER WORKS
+       Every text that has two versions carries a
+       data-i18n="some-key" attribute. English is written
+       here in the HTML; the Indonesian version lives in
+       the "translations" dictionary in script.js under
+       the same key. Clicking the EN/ID button swaps them.
+       ===================================================== -->
+
   <!-- ============================================= -->
   <!-- NAVBAR (sticky, turns solid when you scroll)  -->
   <!-- ============================================= -->
@@ -28,14 +37,21 @@
 
       <!-- Navigation links -->
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#certificates" class="nav-link">Certificates</a></li>
-        <li><a href="#contact" class="nav-link nav-link-button">Contact</a></li>
+        <li><a href="#home" class="nav-link" data-i18n="nav-home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav-about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav-skills">Skills</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav-experience">Experience</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav-projects">Projects</a></li>
+        <li><a href="#certificates" class="nav-link" data-i18n="nav-certificates">Certificates</a></li>
+        <li><a href="#contact" class="nav-link nav-link-button" data-i18n="nav-contact">Contact</a></li>
       </ul>
+
+      <!-- Language switcher (EN ↔ ID) -->
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="lang-option active" id="lang-en">EN</span>
+        <span class="lang-divider">/</span>
+        <span class="lang-option" id="lang-id">ID</span>
+      </button>
 
       <!-- Hamburger button (only visible on mobile) -->
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -55,7 +71,7 @@
       <div class="container hero-inner">
 
         <div class="hero-text">
-          <p class="hero-greeting">👋 Hello, my name is</p>
+          <p class="hero-greeting" data-i18n="hero-greeting">👋 Hello, my name is</p>
           <h1 class="hero-name">Austin <span class="gradient-text">Pranata</span></h1>
 
           <!-- The span below is filled by the typing effect in script.js -->
@@ -63,15 +79,15 @@
             <span id="typing-text"></span><span class="typing-cursor">|</span>
           </p>
 
-          <p class="hero-description">
+          <p class="hero-description" data-i18n="hero-description">
             Information Systems graduate from BINUS University with a passion for
             data analysis, digital marketing, and building useful digital products.
             Fast learner, well-organized, and ready to contribute.
           </p>
 
           <div class="hero-buttons">
-            <a href="#projects" class="button button-primary">View My Work</a>
-            <a href="assets/documents/cv-austin-pranata.pdf" download class="button button-outline">
+            <a href="#projects" class="button button-primary" data-i18n="btn-view-work">View My Work</a>
+            <a href="assets/documents/cv-austin-pranata.pdf" download class="button button-outline" data-i18n="btn-download-cv">
               Download CV
             </a>
           </div>
@@ -104,8 +120,8 @@
     <!-- ============================================= -->
     <section class="section" id="about">
       <div class="container">
-        <p class="section-label reveal">Get to know me</p>
-        <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
+        <p class="section-label reveal" data-i18n="about-label">Get to know me</p>
+        <h2 class="section-title reveal" data-i18n="about-title">About <span class="gradient-text">Me</span></h2>
 
         <div class="about-grid">
           <div class="about-photo reveal">
@@ -113,13 +129,13 @@
           </div>
 
           <div class="about-content reveal">
-            <p>
+            <p data-i18n="about-p1">
               I am an <strong>Information Systems graduate</strong> from BINUS University
               with a strong interest in technology development and data analysis.
               I have hands-on experience in data management, digital marketing,
               and basic application development.
             </p>
-            <p>
+            <p data-i18n="about-p2">
               I am used to working in a structured way, learning quickly, and adapting
               to dynamic work environments. I enjoy solving problems and turning
               messy information into something clear and useful.
@@ -128,15 +144,15 @@
             <!-- Quick facts in a small grid -->
             <ul class="about-facts">
               <li>
-                <span class="fact-label">Location</span>
+                <span class="fact-label" data-i18n="fact-location">Location</span>
                 <span class="fact-value">Tangerang, Banten</span>
               </li>
               <li>
-                <span class="fact-label">Degree</span>
-                <span class="fact-value">S1 Information Systems</span>
+                <span class="fact-label" data-i18n="fact-degree">Degree</span>
+                <span class="fact-value" data-i18n="fact-degree-value">S1 Information Systems</span>
               </li>
               <li>
-                <span class="fact-label">GPA</span>
+                <span class="fact-label" data-i18n="fact-gpa">GPA</span>
                 <span class="fact-value">3.37 / 4.00</span>
               </li>
               <li>
@@ -145,7 +161,7 @@
               </li>
             </ul>
 
-            <a href="assets/documents/cv-austin-pranata.pdf" download class="button button-primary">
+            <a href="assets/documents/cv-austin-pranata.pdf" download class="button button-primary" data-i18n="btn-download-cv">
               Download CV
             </a>
           </div>
@@ -158,8 +174,8 @@
     <!-- ============================================= -->
     <section class="section" id="skills">
       <div class="container">
-        <p class="section-label reveal">What I can do</p>
-        <h2 class="section-title reveal">My <span class="gradient-text">Skills</span></h2>
+        <p class="section-label reveal" data-i18n="skills-label">What I can do</p>
+        <h2 class="section-title reveal" data-i18n="skills-title">My <span class="gradient-text">Skills</span></h2>
 
         <div class="skills-grid">
 
@@ -167,8 +183,8 @@
             <div class="skill-icon">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
             </div>
-            <h3>Technical Skills</h3>
-            <p>Languages and tools I use to build websites and mobile applications.</p>
+            <h3 data-i18n="skills-tech-title">Technical Skills</h3>
+            <p data-i18n="skills-tech-desc">Languages and tools I use to build websites and mobile applications.</p>
             <ul class="skill-tags">
               <li>HTML</li>
               <li>CSS</li>
@@ -186,14 +202,14 @@
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Soft Skills</h3>
-            <p>How I approach problems, people, and deadlines in everyday work.</p>
+            <p data-i18n="skills-soft-desc">How I approach problems, people, and deadlines in everyday work.</p>
             <ul class="skill-tags">
-              <li>Problem Solving</li>
-              <li>Analytical Thinking</li>
-              <li>Communication</li>
-              <li>Teamwork</li>
-              <li>Fast Learner</li>
-              <li>Time Management</li>
+              <li data-i18n="skill-problem-solving">Problem Solving</li>
+              <li data-i18n="skill-analytical">Analytical Thinking</li>
+              <li data-i18n="skill-communication">Communication</li>
+              <li data-i18n="skill-teamwork">Teamwork</li>
+              <li data-i18n="skill-fast-learner">Fast Learner</li>
+              <li data-i18n="skill-time-management">Time Management</li>
             </ul>
           </article>
 
@@ -202,24 +218,24 @@
     </section>
 
     <!-- ============================================= -->
-    <!-- EXPERIENCE                                    -->
+    <!-- EXPERIENCE (timeline)                         -->
     <!-- ============================================= -->
     <section class="section" id="experience">
       <div class="container">
-        <p class="section-label reveal">Where I have worked</p>
-        <h2 class="section-title reveal">My <span class="gradient-text">Experience</span></h2>
+        <p class="section-label reveal" data-i18n="exp-label">Where I have worked</p>
+        <h2 class="section-title reveal" data-i18n="exp-title">My <span class="gradient-text">Experience</span></h2>
 
         <div class="timeline">
 
           <article class="timeline-item reveal">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
-              <span class="timeline-date">Aug 2025 — Dec 2025</span>
+              <span class="timeline-date" data-i18n="exp1-date">Aug 2025 — Dec 2025</span>
               <h3>Student Development Support Intern</h3>
               <p class="timeline-company">BINUS Global Class</p>
               <ul class="timeline-list">
-                <li>Coordinated Global Class events end-to-end: participant registration, activity documentation, and presentation equipment.</li>
-                <li>Organized and managed Global Class student data to support administration, periodic reporting, and basic program performance analysis.</li>
+                <li data-i18n="exp1-b1">Coordinated Global Class events end-to-end: participant registration, activity documentation, and presentation equipment.</li>
+                <li data-i18n="exp1-b2">Organized and managed Global Class student data to support administration, periodic reporting, and basic program performance analysis.</li>
               </ul>
               <img class="timeline-photo" src="assets/images/internship-event.jpeg"
                    alt="Austin hosting a Global Class orientation event at BINUS University" />
@@ -233,10 +249,10 @@
               <h3>Certified Specific Independent Study</h3>
               <p class="timeline-company">BINUS University — Digital Marketing</p>
               <ul class="timeline-list">
-                <li>Applied integrated digital marketing strategies: SEO, social media marketing, and email marketing in a multi-channel campaign simulation.</li>
-                <li>Planned content and funnel-based marketing strategies to grow audience reach.</li>
-                <li>Evaluated campaign performance with analytics tools to identify audience behavior patterns.</li>
-                <li>Wrote copy and produced visual content tailored to each digital platform.</li>
+                <li data-i18n="exp2-b1">Applied integrated digital marketing strategies: SEO, social media marketing, and email marketing in a multi-channel campaign simulation.</li>
+                <li data-i18n="exp2-b2">Planned content and funnel-based marketing strategies to grow audience reach.</li>
+                <li data-i18n="exp2-b3">Evaluated campaign performance with analytics tools to identify audience behavior patterns.</li>
+                <li data-i18n="exp2-b4">Wrote copy and produced visual content tailored to each digital platform.</li>
               </ul>
               <img class="timeline-photo" src="assets/images/certificate-independent-study.jpg"
                    alt="Certificate of Completion — Digital Marketing Course, BINUS University" />
@@ -252,16 +268,16 @@
     <!-- ============================================= -->
     <section class="section" id="education">
       <div class="container">
-        <p class="section-label reveal">My study background</p>
-        <h2 class="section-title reveal">My <span class="gradient-text">Education</span></h2>
+        <p class="section-label reveal" data-i18n="edu-label">My study background</p>
+        <h2 class="section-title reveal" data-i18n="edu-title">My <span class="gradient-text">Education</span></h2>
 
         <div class="education-card reveal">
           <img src="assets/images/binus-campus.jpeg" alt="BINUS University campus building" />
           <div class="education-content">
             <span class="timeline-date">2022 — 2026</span>
-            <h3>S1 Information Systems</h3>
+            <h3 data-i18n="edu-degree">S1 Information Systems</h3>
             <p class="timeline-company">Universitas Bina Nusantara (BINUS)</p>
-            <p>
+            <p data-i18n="edu-desc">
               Studied how technology, data, and business work together — from
               systems analysis and databases to application development.
               Graduated with a GPA of <strong>3.37</strong>.
@@ -276,8 +292,8 @@
     <!-- ============================================= -->
     <section class="section" id="projects">
       <div class="container">
-        <p class="section-label reveal">Things I have built</p>
-        <h2 class="section-title reveal">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-label reveal" data-i18n="proj-label">Things I have built</p>
+        <h2 class="section-title reveal" data-i18n="proj-title">My <span class="gradient-text">Projects</span></h2>
 
         <div class="projects-grid">
 
@@ -287,7 +303,7 @@
             </div>
             <div class="project-content">
               <h3>World of Batik</h3>
-              <p>
+              <p data-i18n="proj-wob-desc">
                 A website concept that introduces Indonesian batik culture with the
                 help of an AI chatbot. Designed as an interactive prototype in Figma.
               </p>
@@ -297,7 +313,7 @@
                 <li>Prototype</li>
               </ul>
               <a href="https://bit.ly/WorldOfBatik-Prototype" target="_blank" rel="noopener" class="project-link">
-                View Prototype
+                <span data-i18n="proj-wob-link">View Prototype</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
             </div>
@@ -309,7 +325,7 @@
             </div>
             <div class="project-content">
               <h3>wHeel Hub</h3>
-              <p>
+              <p data-i18n="proj-wheel-desc">
                 A car dealership website built as a university project — featuring a
                 product catalog, promotions, and a clean dark interface.
               </p>
@@ -318,7 +334,7 @@
                 <li>CSS</li>
                 <li>Web Design</li>
               </ul>
-              <span class="project-link project-link-muted">University Project</span>
+              <span class="project-link project-link-muted" data-i18n="proj-wheel-status">University Project</span>
             </div>
           </article>
 
@@ -328,7 +344,7 @@
             </div>
             <div class="project-content">
               <h3>Gajian Aman</h3>
-              <p>
+              <p data-i18n="proj-gajian-desc">
                 A personal finance app for tracking income, expenses, budgets,
                 bills, and savings — published on the Google Play Store.
               </p>
@@ -338,7 +354,7 @@
                 <li>Google Play</li>
               </ul>
               <a href="https://play.google.com/store/apps/details?id=com.gajian_aman&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="project-link">
-                View on Google Play
+                <span data-i18n="proj-gajian-link">View on Google Play</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
             </div>
@@ -353,8 +369,8 @@
     <!-- ============================================= -->
     <section class="section" id="certificates">
       <div class="container">
-        <p class="section-label reveal">Proof of learning</p>
-        <h2 class="section-title reveal">My <span class="gradient-text">Certificates</span></h2>
+        <p class="section-label reveal" data-i18n="cert-label">Proof of learning</p>
+        <h2 class="section-title reveal" data-i18n="cert-title">My <span class="gradient-text">Certificates</span></h2>
 
         <div class="certificates-grid">
 
@@ -362,27 +378,27 @@
             <div class="certificate-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg>
             </div>
-            <h3>Rapid Developer Certification</h3>
-            <p>Certification in rapid application development.</p>
-            <a href="assets/documents/rapid-developer-certification.pdf" target="_blank" class="certificate-link">View PDF</a>
+            <h3 data-i18n="cert1-title">Rapid Developer Certification</h3>
+            <p data-i18n="cert1-desc">Certification in rapid application development.</p>
+            <a href="assets/documents/rapid-developer-certification.pdf" target="_blank" class="certificate-link" data-i18n="cert-view">View PDF</a>
           </article>
 
           <article class="certificate-card reveal">
             <div class="certificate-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
-            <h3>Independent Study Certificate</h3>
-            <p>Certified Specific Independent Study — digital marketing program at BINUS.</p>
-            <a href="assets/documents/sertifikat-studi-independen.pdf" target="_blank" class="certificate-link">View PDF</a>
+            <h3 data-i18n="cert2-title">Independent Study Certificate</h3>
+            <p data-i18n="cert2-desc">Certified Specific Independent Study — digital marketing program at BINUS.</p>
+            <a href="assets/documents/sertifikat-studi-independen.pdf" target="_blank" class="certificate-link" data-i18n="cert-view">View PDF</a>
           </article>
 
           <article class="certificate-card reveal">
             <div class="certificate-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>Organization Certification</h3>
-            <p>Recognition for active involvement in campus organization activities.</p>
-            <a href="assets/documents/sertifikasi-organisasi.pdf" target="_blank" class="certificate-link">View PDF</a>
+            <h3 data-i18n="cert3-title">Organization Certification</h3>
+            <p data-i18n="cert3-desc">Recognition for active involvement in campus organization activities.</p>
+            <a href="assets/documents/sertifikasi-organisasi.pdf" target="_blank" class="certificate-link" data-i18n="cert-view">View PDF</a>
           </article>
 
         </div>
@@ -394,9 +410,9 @@
     <!-- ============================================= -->
     <section class="section" id="contact">
       <div class="container">
-        <p class="section-label reveal">Let's connect</p>
-        <h2 class="section-title reveal">Get In <span class="gradient-text">Touch</span></h2>
-        <p class="contact-intro reveal">
+        <p class="section-label reveal" data-i18n="contact-label">Let's connect</p>
+        <h2 class="section-title reveal" data-i18n="contact-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="contact-intro reveal" data-i18n="contact-intro">
           I am open to job opportunities, internships, and collaborations.
           Feel free to reach out through any of the channels below — I will reply as soon as I can.
         </p>
@@ -446,15 +462,16 @@
   <!-- ============================================= -->
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="current-year"></span> Austin Pranata. All rights reserved.</p>
+      <p>© <span id="current-year"></span> Austin Pranata. <span data-i18n="footer-rights">All rights reserved.</span></p>
     </div>
   </footer>
 
-  <!-- Back-to-top button -->
+  <!-- Back-to-top button (appears after scrolling down) -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
   </button>
 
+  <!-- Our JavaScript (loaded last so the HTML above is ready) -->
   <script src="script.js"></script>
 </body>
 </html>
